@@ -1,7 +1,15 @@
 import pandas as pd
 import numpy as np
 
-def split_data():
+def read_processed(data):
+	'''
+	Reads in processed data
+	'''
+	df = pd.read_csv(os.path.join(settings.PROCESSED_DIR,"processed_data.csv"))
+	return df
+
+
+def split_data(df):
 	'''
 	Splits the data into training and test sets
 	and saves each as a csv file in the 'processed directory.
@@ -16,11 +24,15 @@ def split_data():
 	test = df[df['search_id'].isin(user_last_sessions['search_id'])]
 	train = df[~df['search_id'].isin(user_last_sessions['search_id'])]
 
+	make_user_features(train,test)
+
 	train.to_csv('train.csv')
 	test.to_csv('test.csv')
 
-def make_user_features():
+def make_user_features(train,test):
 	'''
+	Input: train and test set
+	
 	Generates user level features using training set only. If user is found in test data,
 	fill in appropriate values.
 	'''
@@ -31,3 +43,11 @@ def make_user_features():
 
 	test = test.assign(user_clicks = test['user_id'].map(train.groupby('user_id')['is_click'].sum()).fillna(0).astype(int))
 	test = test.assign(user_impressions = test['user_id'].map(train.groupby('user_id')['is_click'].size()).fillna(0).astype(int))
+
+
+if __name__ == '__main__':
+	data = read_processed()
+	split_data(data)
+
+
+

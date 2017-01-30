@@ -20,8 +20,8 @@ def read_raw():
 	'''
 	Reads in raw data file
 	'''
-	df = pd.read_csv(os.path.join(settings.DATA_DIR,"sample1M.csv"))
-	return (df)
+	df = pd.read_csv(os.path.join(settings.PROCESSED_DIR,"sample1M.csv"))
+	return df
 
 
 def process(df):
@@ -37,8 +37,7 @@ def process(df):
 	df['hour'] = df['search_date'].map(lambda x: x.hour)
 	df['is_query'] = df['search_query'].map(lambda x: 1 if str(x) != 'nan' else 0 )
 	df['ads_shown'] = df.groupby('search_id')['ad_id'].transform("count")
-	df.to_csv('processed_data.csv')
-
+	df.to_csv(os.path.join(settings.PROCESSED_DIR, "processed_data.csv"))
 
 if __name__ == '__main__':
 	data = read_raw()

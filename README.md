@@ -23,8 +23,9 @@ Discovers insights into user behavior to predict whether a user will click a giv
 
 * Run 'mkdir processed' to create a directory for processed data.
 * Run 'python get_sample.py' to get a sample of 1M rows.
+	* This creates a file called 'sample1M.csv' in the 'processed folder'
 * Run 'python process_data.py' to process data.
-	* This will create a file called processed_data.csv in the 'processed folder'.
+	* This will create a file called 'processed_data.csv' in the 'processed folder'.
 * Run 'python split_data.py' for train/test sets.
 	* This creates a file 'train.csv' and 'test.csv' in the 'processed' folder.
 * Run 'python predict.py'
@@ -37,4 +38,3 @@ Discovers insights into user behavior to predict whether a user will click a giv
 * Add more data (Use spark to process all 400 million records). 
 * Test different algorithms(Random Forest, Boosted Trees).
 * Perform Grid Search to optimize parameters.
-* Try building user segmented models.
