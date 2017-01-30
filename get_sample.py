@@ -1,12 +1,11 @@
 import sqlite3
-from pandas.io import sql
 import pandas as pd
 
 
 def sample_data():
 	'''
 	Connects to database and samples 1M rows,
-	saves sample as csv file.
+	saves sample as csv file to 'processed' directory.
 	'''
 
 	file = os.listdir(settings.DATA_DIR)
@@ -21,7 +20,7 @@ def sample_data():
 
 	df = pd.DataFrame(data.fetchall())
 
-	df.to_csv(os.path.join(settings,PROCESSED_DIR, "{}.csv"),encoding='utf-8')
+	df.to_csv(os.path.join(settings.PROCESSED_DIR, "{}.csv"),encoding='utf-8')
 
 if __name__ == "__main__":
 	sample_data()

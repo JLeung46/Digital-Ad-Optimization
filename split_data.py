@@ -4,7 +4,7 @@ import numpy as np
 def split_data():
 	'''
 	Splits the data into training and test sets
-	and saves each as a csv file.
+	and saves each as a csv file in the 'processed directory.
 	'''
 	test_start_date = '2015-05-12'
 	test_data_all = df[df['search_date'] > '2015-05-12']
@@ -24,7 +24,7 @@ def make_user_features():
 	Generates user level features using training set only. If user is found in test data,
 	fill in appropriate values.
 	'''
-	
+
 	# Engineer User Features
 	train['user_clicks'] = df.groupby('user_id')['is_click'].transform("sum")
 	train['user_impressions'] = df.groupby('user_id')['is_click'].transform("size")
