@@ -3,7 +3,13 @@ import numpy as np
 
 def read_processed(data):
 	'''
-	Reads in processed data
+	Reads in processed data.
+	Parameters
+	----------
+	data (DataFrame): The processed DataFrame
+	Returns
+	-------
+	df (DataFrame): The processed DataFrame
 	'''
 	df = pd.read_csv(os.path.join(settings.PROCESSED_DIR,"processed_data.csv"))
 	return df
@@ -12,7 +18,10 @@ def read_processed(data):
 def split_data(df):
 	'''
 	Splits the data into training and test sets
-	and saves each as a csv file in the 'processed directory.
+	and saves each as a csv file in the 'processed' directory.
+	Parameters
+	----------
+	df (DataFrame): The processed DataFrame
 	'''
 	test_start_date = '2015-05-12'
 	test_data_all = df[df['search_date'] > '2015-05-12']
@@ -31,13 +40,13 @@ def split_data(df):
 
 def make_user_features(train,test):
 	'''
-	Input: train and test set
-	
 	Generates user level features using training set only. If user is found in test data,
 	fill in appropriate values.
+	Parameters
+	----------
+	train (DataFrame): The training data.
+	test (DataFrame): The test data.
 	'''
-
-	# Engineer User Features
 	train['user_clicks'] = df.groupby('user_id')['is_click'].transform("sum")
 	train['user_impressions'] = df.groupby('user_id')['is_click'].transform("size")
 

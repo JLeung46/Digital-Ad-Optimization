@@ -7,6 +7,10 @@ from sklearn.metrics import roc_curve, auc
 def read_data():
 	'''
 	Reads in train and test data.
+	Returns
+	-------
+	train (DataFrame): train DataFrame
+	test (DataFrame): test DataFrame
 	'''
 	train = pd.read_csv(os.path.join(settings.PROCESSED_DIR,"train.csv"))
 	test = pd.read_csv(os.path.join(settings.PROCESSED_DIR,"test.csv"))
@@ -19,7 +23,13 @@ def read_data():
 def predict(train,test):
 	'''
 	Trains model and make predictions.
-	Prints AUC score.
+	Parameters
+	----------
+	train (DataFrame): train DataFrame
+	test (DataFrame): test DataFrame
+	Returns
+	-------
+	result: AUC score.
 	'''
 	features = settings.FEATURES
 

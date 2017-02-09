@@ -7,7 +7,14 @@ import datetime
 
 def get_date_time(str_date):
 	'''
-	Converts string date to date time object
+	Converts string date to a date time object.
+	Parameters
+	----------
+	str_date (String): A date string
+	Returns
+	-------
+	Datetime object
+
 	'''
     if len(str_date) == 0:
         return 'None'
@@ -19,6 +26,9 @@ def get_date_time(str_date):
 def read_raw():
 	'''
 	Reads in raw data file
+	Returns
+	-------
+	DataFrame: A DataFrame of the raw data.
 	'''
 	df = pd.read_csv(os.path.join(settings.PROCESSED_DIR,"sample1M.csv"))
 	return df
@@ -26,9 +36,11 @@ def read_raw():
 
 def process(df):
 	'''
-	Takes in the raw data and performs data processing & feature engineering
-	Input: Raw dataframe
-	Output: Processed csv file
+	Takes in the raw data and performs data processing & feature engineering tasks.
+	Saves processed data in 'processed' directory.
+	Parameters
+	----------
+	df (DataFrame): Raw dataframe
 	'''
 	df['search_date'] = df['search_date'].map(lambda x:get_date_time(x))
 	df['month'] = df['search_date'].map(lambda x: x.month)
