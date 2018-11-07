@@ -21,7 +21,7 @@ Run `pip3 install -r requirements.txt` to install requirements.
 * Extract the downloaded file into `data` directory.
 * Extract the database.sqlite file.
 
-The sample data used for the exploratory analysis can be obtained [here](https://drive.google.com/open?id=1dLldcIZg0eNTTiVIi0p-ENCHuH0RinMG).
+The sample data used for the exploratory analysis can be obtained [here](https://drive.google.com/open?id=1dLldcIZg0eNTTiVIi0p-ENCHuH0RinMG) which should be extracted to the `data` directory.
 
 ### Running
 
