@@ -15,11 +15,13 @@ The program requires the following dependencies:
 
 Run `pip3 install -r requirements.txt` to install requirements.
 
-### Data Download
+### Data
 
 * Download the database [here](https://www.kaggle.com/c/avito-context-ad-clicks/data).
 * Extract the downloaded file into `data` directory.
 * Extract the database.sqlite file.
+
+The sample data used for the exploratory analysis can be obtained [here](https://drive.google.com/open?id=1dLldcIZg0eNTTiVIi0p-ENCHuH0RinMG).
 
 ### Running
 
