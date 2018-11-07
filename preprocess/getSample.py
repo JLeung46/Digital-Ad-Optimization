@@ -1,16 +1,16 @@
+import os
 import sqlite3
 import pandas as pd
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_DIR = os.path.join(BASE_DIR,'data')
 
-def sample_data():
+def sampleData(filename):
 	'''
 	Connects to database and samples 1M rows,
-	saves sample as csv file to 'processed' directory.
+	saves sample as csv file
 	'''
-
-	file = os.listdir(settings.DATA_DIR)
-
-	conn = sqlite3.connect('file')
+	conn = sqlite3.connect(filename)
 
 	conn.execute('CREATE TABLE SAMPLE AS SELECT * FROM trainSearchStream JOIN SearchInfo ON trainSearchStream.SearchID = SearchInfo.SearchID')
 
@@ -20,13 +20,9 @@ def sample_data():
 
 	df = pd.DataFrame(data.fetchall())
 
-	df.drop('6', axis=1,inplace=True)
-	df.drop('15',axis=1,inplace=True)
+	df.drop([6,15], axis=1,inplace=True)
 
 	df.columns = ['search_id','ad_id','position','object_type','hist_ctr','is_click','search_date','id_id','user_id','is_user_logged_on','search_query','location_id_search','category_id_search_filter','search_parameters','location_geo_target',
                  'category_id_ad','ad_parameters','price','title','is_context']
 
-	df.to_csv(os.path.join(settings.PROCESSED_DIR, "sample1M.csv"),encoding='utf-8')
-
-if __name__ == "__main__":
-	sample_data()
+	df.to_csv(DATA_DIR + os.sep + 'sample1M.csv',encoding='utf-8')

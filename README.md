@@ -10,8 +10,9 @@ Discovers insights into user behavior to predict whether a user will click a giv
 * Make data folder using 'mkdir data'.
 * Go into data directory using 'cd data'.
 * Download the database [here](https://www.kaggle.com/c/avito-context-ad-clicks/data).
-* Extract the database in data directory.
-* Remove the zip file.
+* Extract the downloaded file.
+* Extract the database.sqlite file.
+
 * Go back to 'User_Behavior_Ad_Optimization' directory using 'cd ..'.
 
 ### Install requirements 
