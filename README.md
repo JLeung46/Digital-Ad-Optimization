@@ -1,7 +1,7 @@
 # Digital Ad Optimization
 ------------------------------------
 
-This project mainly serves as a data analysis project to discover insights into user click behavior on ads. The [data](https://www.kaggle.com/c/avito-context-ad-clicks/data) was provided by Avito, Russia's largest general classified website.  Additionally, a logistic regression model is trained to predict whether a user will click on a given ad. Please go [here](https://jleung46.github.io/) for the full writeup, including analysis and results.
+This project mainly serves as a data analysis project to discover insights into user click behavior on ads. The [data](https://www.kaggle.com/c/avito-context-ad-clicks/data) was provided by Avito, Russia's largest general classified website.  Additionally, a logistic regression model is trained to predict whether a user will click on a given ad. Please go [here]https://jleung46.github.io/Ad_Optimization.html) for the full writeup, including analysis and results.
 
 ### Installation
 The program requires the following dependencies:
